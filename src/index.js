@@ -107,21 +107,21 @@ app.post('/editUsuario',(req,res)=>{
     });
 } )
 // crear un nuevo usuario
-// app.post('/crearUsuario',(req,res)=>{
-//   const id_usu=req.query.id_usuario;
-//   const nombre=req.query.nombre;
-//   const apellidos=req.query.apellidos;
-//   const dni=req.query.dni;
-//   const telefono=req.query.telefono;
-//   const email=req.query.email;
-//   const pass=req.query.contrasena;
-//    let sql="insert into lista_usuario values('"+id_usu+'","'+nombre+'","'+'","'+apellidos+'","'+dni+'","'+telefono+'","'+email+'","'+pass+'")"';
-//    con.query(sql, function (err, result) {
-//     if (err) throw err;
-//     res.json(result);
-//     console.log("Result: " + JSON.stringify(result,null,2));
-//   });
-  // const dni=req.query.dni;
+app.post('/crearUsuario',(req,res)=>{
+  const id_usu=req.query.id_usuario;
+  const nombre=req.query.nombre;
+  const apellidos=req.query.apellidos;
+  const dni=req.query.dni;
+  const telefono=req.query.telefono;
+  const email=req.query.email;
+  const pass=req.query.contrasena;
+   let sql="insert into lista_usuario values('"+id_usu+'","'+nombre+'","'+'","'+apellidos+'","'+dni+'","'+telefono+'","'+email+'","'+pass+'")"';
+   con.query(sql, function (err, result) {
+    if (err) throw err;
+    res.json(result);
+    console.log("Result: " + JSON.stringify(result,null,2));
+  });
+  const dni=req.query.dni;
 
   let sql="UPDATE lista_usuario set nombre='"+nombre+"'where id_usuario="+id_usu;
     con.query(sql, function (err, result) {
