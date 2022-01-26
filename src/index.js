@@ -121,6 +121,7 @@ app.post('/crearUsuario',(req,res)=>{
     res.json(result);
     console.log("Result: " + JSON.stringify(result,null,2));
   });
+})
   const dni=req.query.dni;
 
   let sql="UPDATE lista_usuario set nombre='"+nombre+"'where id_usuario="+id_usu;
