@@ -122,14 +122,24 @@ app.post('/crearUsuario',(req,res)=>{
     console.log("Result: " + JSON.stringify(result,null,2));
   });
 })
-  const dni=req.query.dni;
+//eliminar usuario 
+app.post('/eliminarUsuario',(req,result)=>{
+  const id_usu=req.query.id_usuario;
+  let sql="delete from lista_usuario where id_usuario="+id_usu;
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    res.json(result);
+    console.log("Result: " + JSON.stringify(result,null,2));
+  });
+})
+  // const dni=req.query.dni;
 
-  let sql="UPDATE lista_usuario set nombre='"+nombre+"'where id_usuario="+id_usu;
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      res.json(result);
-      console.log("Result: " + JSON.stringify(result,null,2));
-    });
+  // let sql="UPDATE lista_usuario set nombre='"+nombre+"'where id_usuario="+id_usu;
+  //   con.query(sql, function (err, result) {
+  //     if (err) throw err;
+  //     res.json(result);
+  //     console.log("Result: " + JSON.stringify(result,null,2));
+  //   });
 
  //Iniciando el servidor, escuchando...
 app.listen(app.get('port'),()=>{
