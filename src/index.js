@@ -1,5 +1,5 @@
 const swaggerUi = require('swagger-ui-express')
-const swaggerFile = require('..swagger_output.json')
+const swaggerFile = require('./swagger_output.json')
 //MySQL conexion a base de datos
 var mysql = require('mysql');
 
@@ -31,7 +31,7 @@ app.set('json spaces', 2)
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 //consulta usuarios
 app.get('/usuarios', (req, res) => {
